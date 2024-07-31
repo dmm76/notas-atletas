@@ -4,22 +4,55 @@ class CalcularMediaAtletas {
   constructor(ginastas) {
     this.ginastas = ginastas;
   }
+
+  //1- Ordenar as Notas dos Ginastar
   ordenarNotas() {
-    this.ginastas.forEach((ginasta) => {
+    this.ginastas.forEach(function (ginasta) {
       ginasta.notas = ginasta.notas.sort(function (a, b) {
         return a - b;
       });
       console.log("Notas Ordenadas: " + ginasta.notas);
-      return ginasta.notas;
     });
-
-    //   this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
+    // this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
     // console.log(this.ginastas[0].notas);
+    // console.log("Notas Ordenadas: " + this.ginastas[0].notas);
     // return this.ginastas[0].notas;
   }
-  descartarMaiorMenor() {}
-  somarNotas() {}
-  mediaDasNotas() {}
+
+  //2 - Descartar a primeira nota(menor) e a ultima nota(maior)
+  descartarMaiorMenor() {
+    this.ginastas.forEach(function (ginasta) {
+      ginasta.notas = ginasta.notas.sort(function (a, b) {
+        return a - b;
+      });
+      ginasta.notas = ginasta.notas.slice(1, -1);
+      console.log("Notas Ordenadas com descarte: " + ginasta.notas);
+    });
+    // this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
+    // this.ginastas[0].notas = this.ginastas[0].notas.slice(1, -1);
+    // console.log("Notas Ordenadas com descarte: " + this.ginastas[0].notas);
+    // return this.ginastas[0].notas;
+  }
+
+  // 3 - Fazer a soma das notas
+  somarNotas() {
+    this.ginastas.forEach(function (ginasta) {
+      ginasta.somarNotas = ginasta.notas.reduce(function (total, nota) {
+        return total + nota;
+      }, 0);
+      console.log("Notas somadas: " + ginasta.somarNotas);
+    });
+    console.log("*-----------*");
+  }
+
+  // 4 - Fazer a media das notas
+  mediaDasNotas() {
+    this.ginastas.forEach(function (ginasta) {
+      ginasta.mediaNotas = ginasta.somarNotas / ginasta.notas.length;
+      console.log("Media das Notas: " + ginasta.mediaNotas);
+    });
+    console.log("*-----------*");
+  }
 }
 
 let atletas = [
@@ -41,8 +74,13 @@ let atletas = [
   },
 ];
 
-let calcularmedia = new CalcularMediaAtletas(atletas);
+let calcularMedia = new CalcularMediaAtletas(atletas);
 
-calcularmedia.ordenarNotas();
+// Chamando os métodos na ordem correta
+calcularMedia.ordenarNotas();
+calcularMedia.descartarMaiorMenor();
+calcularMedia.somarNotas();
+calcularMedia.mediaDasNotas();
 
-console.log(CalcularMediaAtletas);
+// Exibindo o resultado final
+console.log(calcularMedia.ginastas);
