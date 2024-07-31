@@ -11,7 +11,7 @@ class CalcularMediaAtletas {
       ginasta.notas = ginasta.notas.sort(function (a, b) {
         return a - b;
       });
-      console.log("Notas Ordenadas: " + ginasta.notas);
+      // console.log("Notas Ordenadas: " + ginasta.notas);
     });
     // this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
     // console.log(this.ginastas[0].notas);
@@ -26,7 +26,7 @@ class CalcularMediaAtletas {
         return a - b;
       });
       ginasta.notas = ginasta.notas.slice(1, -1);
-      console.log("Notas Ordenadas com descarte: " + ginasta.notas);
+      // console.log("Notas Ordenadas com descarte: " + ginasta.notas);
     });
     // this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
     // this.ginastas[0].notas = this.ginastas[0].notas.slice(1, -1);
@@ -40,18 +40,19 @@ class CalcularMediaAtletas {
       ginasta.somarNotas = ginasta.notas.reduce(function (total, nota) {
         return total + nota;
       }, 0);
-      console.log("Notas somadas: " + ginasta.somarNotas);
+      // console.log("Notas somadas: " + ginasta.somarNotas);
     });
-    console.log("*-----------*");
+    // console.log("*-----------*");
   }
 
   // 4 - Fazer a media das notas
   mediaDasNotas() {
     this.ginastas.forEach(function (ginasta) {
       ginasta.mediaNotas = ginasta.somarNotas / ginasta.notas.length;
-      console.log("Media das Notas: " + ginasta.mediaNotas);
+      console.log(
+        "Ginasta: " + ginasta.nome + ", Média: " + ginasta.mediaNotas
+      );
     });
-    console.log("*-----------*");
   }
 }
 
