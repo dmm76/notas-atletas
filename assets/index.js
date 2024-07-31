@@ -11,12 +11,9 @@ class CalcularMediaAtletas {
       ginasta.notas = ginasta.notas.sort(function (a, b) {
         return a - b;
       });
-      // console.log("Notas Ordenadas: " + ginasta.notas);
+      console.log("Ginasta: " + ginasta.nome + ", Notas: " + ginasta.notas);
     });
-    // this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
-    // console.log(this.ginastas[0].notas);
-    // console.log("Notas Ordenadas: " + this.ginastas[0].notas);
-    // return this.ginastas[0].notas;
+    console.log("*---------------------------------------------*");
   }
 
   //2 - Descartar a primeira nota(menor) e a ultima nota(maior)
@@ -25,13 +22,13 @@ class CalcularMediaAtletas {
       ginasta.notas = ginasta.notas.sort(function (a, b) {
         return a - b;
       });
+
       ginasta.notas = ginasta.notas.slice(1, -1);
-      // console.log("Notas Ordenadas com descarte: " + ginasta.notas);
+      console.log(
+        "Ginasta: " + ginasta.nome + ", Notas com descarte: " + ginasta.notas
+      );
     });
-    // this.ginastas[0].notas = this.ginastas[0].notas.sort((a, b) => a - b);
-    // this.ginastas[0].notas = this.ginastas[0].notas.slice(1, -1);
-    // console.log("Notas Ordenadas com descarte: " + this.ginastas[0].notas);
-    // return this.ginastas[0].notas;
+    console.log("*---------------------------------------------*");
   }
 
   // 3 - Fazer a soma das notas
@@ -53,6 +50,21 @@ class CalcularMediaAtletas {
         "Ginasta: " + ginasta.nome + ", Média: " + ginasta.mediaNotas
       );
     });
+    console.log("*---------------------------------------------*");
+  }
+
+  vencedor() {
+    let maior = 0;
+    let vencedor = "";
+    this.ginastas.forEach(function (ginasta) {
+      if (ginasta.mediaNotas > maior) {
+        maior = ginasta.mediaNotas;
+        vencedor = ginasta.nome;
+      }
+    });
+
+    console.log("Vencedor : " + vencedor + ", Media: " + maior.toFixed(2));
+    console.log("*---------------------------------------------*");
   }
 }
 
@@ -82,6 +94,7 @@ calcularMedia.ordenarNotas();
 calcularMedia.descartarMaiorMenor();
 calcularMedia.somarNotas();
 calcularMedia.mediaDasNotas();
+calcularMedia.vencedor();
 
 // Exibindo o resultado final
 console.log(calcularMedia.ginastas);
