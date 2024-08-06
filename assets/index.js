@@ -1,5 +1,3 @@
-console.log("Estou aqui..");
-
 class CalcularMediaAtletas {
   constructor(ginastas) {
     this.ginastas = ginastas;
